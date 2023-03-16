@@ -1,1 +1,112 @@
-/* You can add global styles to this file, and also import other style files */
+.navbar{
+  display: flex;
+  position: absolute;
+  left: 0;
+  flex-direction: column;
+  background-color: black;
+  height: 95%;
+  width: 230px;
+}
+
+.textnavbar{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.footer {
+  display: flex;
+  background-color: #1c1c1c;
+  justify-content: space-around;
+  align-items: flex-end;
+  height: 100px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.home {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 270px;
+}
+
+.tpp {
+  color: grey;
+  font-size: 150%;
+}
+
+hr {
+  color: grey;
+}
+
+body {
+  margin: 0;
+  background-color: #1c1c1c;
+}
+
+.btn-banner {
+  color: grey;
+  background: none;
+  border: none;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  font-size: 80%;
+}
+
+.btn-banner:hover {
+  color: white;
+  background: none;
+  border: none;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  font-size: 80%;
+  cursor: pointer;
+}
+
+.btn-banner:active {
+  color: white;
+  background: none;
+  border: none;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  font-size: 80%;
+}
+
+.disposition-album {
+  display: flex;
+
+  flex-wrap: wrap;
+  margin:auto;
+}
+
+.btn-album {
+  margin: 10px 30px 10px 0;
+  padding: 30px 213px;
+  border: none;
+  background-color: #3a3a3a;
+  color: white;
+  border-radius: 3px;
+}
+
+.disposition-podcast {
+  display: flex;
+  flex-wrap: wrap;
+  margin:auto;
+}
+
+.btn-podcast {
+  padding: 20px 100px 250px;
+  border: none;
+  background-color: #3a3a3a;
+  color: white;
+  border-radius: 3px;
+  margin: 0px 25px 20px 0px;
+}
+
+p, h1 {
+  color: white;
+}
+
+
