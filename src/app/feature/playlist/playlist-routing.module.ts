@@ -4,9 +4,8 @@ import { CreatePlaylistComponent } from './create-playlist/create-playlist.compo
 import { PlaylistComponent } from './playlist/playlist.component';
 
 const routes: Routes = [
-  {path: '', component: PlaylistComponent, children : [
-    {path: 'create', component: CreatePlaylistComponent}
-  ]}
+  {path: 'create', component: CreatePlaylistComponent},
+  {path: ':id', component: PlaylistComponent}
 ];
 
 @NgModule({

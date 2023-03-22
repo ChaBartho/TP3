@@ -11,15 +11,16 @@ export class HomeComponent implements OnInit {
 
   token!:string;
 
-  constructor(private location: Location, private auth : AuthService) {}
+  constructor(private location: Location, private _auth : AuthService) {}
 
   ngOnInit(): void {
-    this.auth.getToken();
+    this._auth.getToken();
   }
 
   goBack(): void {
     this.location.back();
   }
+
 
 
 }

@@ -4,7 +4,8 @@
   left: 0;
   flex-direction: column;
   background-color: black;
-  height: 95%;
+  height: 150%;
+  //min-height: 100%;
   width: 230px;
 }
 
@@ -17,7 +18,6 @@
   display: flex;
   background-color: #1c1c1c;
   justify-content: space-around;
-  align-items: flex-end;
   height: 100px;
   position: fixed;
   bottom: 0;
@@ -30,6 +30,11 @@
   flex-direction: column;
   align-items: flex-start;
   padding-left: 270px;
+}
+
+.btn-register {
+  float: right;
+  margin: 20px;
 }
 
 .tpp {
@@ -76,14 +81,13 @@ body {
 
 .disposition-album {
   display: flex;
-
   flex-wrap: wrap;
   margin:auto;
 }
 
 .btn-album {
   margin: 10px 30px 10px 0;
-  padding: 30px 213px;
+  padding: 30px 199px;
   border: none;
   background-color: #3a3a3a;
   color: white;
@@ -97,7 +101,7 @@ body {
 }
 
 .btn-podcast {
-  padding: 20px 100px 250px;
+  padding: 20px 92px 250px;
   border: none;
   background-color: #3a3a3a;
   color: white;
