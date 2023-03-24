@@ -9,6 +9,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { OAuthModule } from 'angular-oauth2-oidc';
 import { HttpClientModule } from '@angular/common/http';
 import { BannerComponent } from './shared/banner/banner.component';
+import { ArtistListComponent } from './feature/artist-list/artist-list.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { BannerComponent } from './shared/banner/banner.component';
     AppComponent,
     HomeComponent,
     PlayerComponent,
-    BannerComponent
+    BannerComponent,
+    ArtistListComponent
   ],
   imports: [
     BrowserModule,

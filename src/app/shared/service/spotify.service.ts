@@ -1,33 +1,61 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient , HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { album, artist, player, playlist } from '../model/spotify';
+import { Album, Artist, Player, Playlist, User } from '../model/spotify';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class ArtistService {
+export class SpotifyService {
+
+  private url = 'https://api.spotify.com/v1'
+
+  private httpOptions = {
+    headers : new HttpHeaders({
+      'Authorization': 'Bearer' + 'MYTOKEN'
+    })
+  }
 
   constructor(private _http: HttpClient) { }
 
-  getArtist(id: string | null) : Observable <artist> {
-    return this._http.get<artist>("https://api.spotify.com/v1/artists/id" + id)
+
+  getArtist(id: string, accessToken:string) : Observable<Artist> {
+
+    //const headers = new HttpHeaders().set('Authorization', `Bearer \${accessToken}`);
+    //return this._http.get<Artist>("https://api.spotify.com/v1/artists/" + id)
+
+
+    const url = 'https://api.spotify.com/v1/artists/'+id;
+    const headers = new HttpHeaders().set('Authorization', accessToken);
+
+    return this._http.get<Artist>(url, { headers });
   }
 
-  getAlbum(id: string | null) : Observable <album> {
-    return this._http.get<album>("https://api.spotify.com/v1/albums/id" + id)
+
+
+
+
+
+  getAlbum(id: string | null) : Observable <Album> {
+    return this._http.get<Album>("https://api.spotify.com/v1/albums/" + id)
   }
 
-  getPlaylist(id: string | null) : Observable <playlist> {
-    return this._http.get<playlist>("https://api.spotify.com/v1/playlists/playlist_id" + id)
+  getPlaylist(id: string | null) : Observable <Playlist> {
+    return this._http.get<Playlist>("https://api.spotify.com/v1/playlists/" + id)
   }
 
-  getPlayer(id: string | null) : Observable <player> {
-    return this._http.get<player>("https://api.spotify.com/v1/me/player/currently-playing" + id)
+  getPlayer(id: string | null) : Observable <Player> {
+    return this._http.get<Player>("https://api.spotify.com/v1/me/player/currently-playing/" + id)
   }
+
+  getMe(): Observable <User> {
+    return this._http.get<User>("https://api.spotify.com/v1/me")
+  }
+
 
 
 
 
 }
+

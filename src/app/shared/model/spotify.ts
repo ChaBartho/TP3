@@ -1,20 +1,25 @@
-export interface album {
+export interface Album {
   id: string;
   title: string;
   artist: string;
 }
 
-export interface artist {
+export interface Artist {
   id: string;
   title: string;
 }
 
-export interface playlist {
+export interface Playlist {
   id: string;
   title: string;
   artist: string;
 }
 
-export interface player {
+export interface Player {
   id: string
 }
+
+export interface User {
+  id: string
+}
+
