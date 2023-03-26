@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class LeBonToken {
+  tokenValue!:string
   constructor(private http: HttpClient) {}
 
   getToken(code: string): Observable<any> {

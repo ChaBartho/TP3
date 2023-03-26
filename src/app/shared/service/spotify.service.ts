@@ -9,7 +9,7 @@ import { Album, Artist, Player, Playlist, User } from '../model/spotify';
 })
 export class SpotifyService {
 
-  private url = 'https://api.spotify.com/v1'
+  private url1 = 'https://api.spotify.com/v1'
 
   private httpOptions = {
     headers : new HttpHeaders({
@@ -22,12 +22,14 @@ export class SpotifyService {
 
   getArtist(id: string, accessToken:string) : Observable<Artist> {
 
-    //const headers = new HttpHeaders().set('Authorization', `Bearer \${accessToken}`);
-    //return this._http.get<Artist>("https://api.spotify.com/v1/artists/" + id)
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${accessToken}`
+    });
 
 
-    const url = 'https://api.spotify.com/v1/artists/'+id;
-    const headers = new HttpHeaders().set('Authorization', accessToken);
+
+    const url = 'https://api.spotify.com/v1/artists/' + id;
+    //const headers = new HttpHeaders().set('Authorization', accessToken);
 
     return this._http.get<Artist>(url, { headers });
   }
