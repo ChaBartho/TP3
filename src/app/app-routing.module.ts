@@ -7,7 +7,7 @@ import { PlayerComponent } from './shared/player/player.component';
 
 
 const routes: Routes = [
-  {path: 'home', component: HomeComponent},
+  {path: '', component: HomeComponent},
   {path: '', component: PlayerComponent},
   {path: '', component: BannerComponent},
   {path: 'biblio', loadChildren: () => import('./feature/biblio/biblio.module').then(m => m.BiblioModule)},

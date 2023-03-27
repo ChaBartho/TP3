@@ -1,3 +1,7 @@
+/*
+
+
+
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -5,9 +9,12 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class LeBonToken {
-  tokenValue!:string
-  constructor(private http: HttpClient) {}
+export class TokenService {
+
+
+  private tokenValue!:string
+
+  constructor(private _http: HttpClient) {}
 
   getToken(code: string): Observable<any> {
     const headers = new HttpHeaders({
@@ -20,6 +27,10 @@ export class LeBonToken {
     body.set('redirect_uri', 'https://localhost:4200');
     body.set('grant_type', 'client_credentials');
 
-    return this.http.post('https://accounts.spotify.com/api/token', body.toString(), { headers });
+    return this._http.post('https://accounts.spotify.com/api/token', body.toString(), { headers });
   }
+
+
 }
+
+*/
