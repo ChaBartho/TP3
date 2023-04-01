@@ -1,17 +1,29 @@
 <div class="navbar">
   <div class="textnavbar">
-    <p class="tpp">...</p>
-    <br><br>
+    <br><br><br><br>
     <img src="./assets/icones/home.png" alt="icone home"> <button class="btn-banner" routerLink="./">Accueil</button>
     <br><br>
     <img src="./assets/icones/search.png" alt="icone search"> <button class="btn-banner" routerLink="./search">Rechercher</button>
     <br><br>
-    <img src="./assets/icones/library.svg" alt="icone library"> <button class="btn-banner" routerLink="./biblio">Bibliothèque</button>
-    <br><br>
-    <img src="./assets/icones/create.png" alt="icone create"> <button class="btn-banner" routerLink="./playlist/create">Créer une playlist</button>
+    <img src="./assets/icones/create.png" alt="icone create"> <button class="btn-banner" routerLink="./create-playlist">Créer une playlist</button>
     <br><br>
     <img src="./assets/icones/like.png" alt="icone like"> <button class="btn-banner" routerLink="./like">Titres likés</button>
     <br><br>
+    <img src="./assets/icones/library.svg" alt="icone library"> <button class="btn-banner" routerLink="./artist">Artist</button>
+    <br><br>
+    <img src="./assets/icones/library.svg" alt="icone library"> <button class="btn-banner" routerLink="./album">Album</button>
+    <br><br>
     <hr>
+  </div>
+</div>
+
+<div>
+  <div>
+    <button class="btn-register" (click)="login()">Log in</button>
+  </div>
+  <br><br>
+  <div class="home">
+    <button type="button" (click)="goBack()">back</button>
+    <br>
   </div>
 </div>

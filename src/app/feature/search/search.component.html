@@ -1,1 +1,24 @@
 <p>search works!</p>
+
+<div class="center">
+  <button (click)="testWonder()">test 'wonder'</button>
+
+  <br><br><br>
+
+  <input type="text" [(ngModel)]="term">
+  <button (click)="search()">go</button>
+
+
+<!-- Potentiellement faire un sous-component ListComponent genre -->
+
+
+  <h1>Résultats de la recherche pour "{{ term }}"</h1>
+    <div *ngIf="results">
+      <div *ngFor="let artist of results">
+        <h2>{{ artist.name }}</h2>
+        <img [src]="artist.images[0].url" alt="{{ artist.name }}">
+     </div>
+    </div>
+
+
+</div>

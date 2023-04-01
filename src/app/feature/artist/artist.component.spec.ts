@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BiblioComponent } from './biblio.component';
+import { ArtistComponent } from './artist.component';
 
-describe('BiblioComponent', () => {
-  let component: BiblioComponent;
-  let fixture: ComponentFixture<BiblioComponent>;
+describe('ArtistComponent', () => {
+  let component: ArtistComponent;
+  let fixture: ComponentFixture<ArtistComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BiblioComponent ]
+      declarations: [ ArtistComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(BiblioComponent);
+    fixture = TestBed.createComponent(ArtistComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

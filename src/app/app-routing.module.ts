@@ -1,19 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AlbumComponent } from './feature/album/album.component';
 
+import { ArtistComponent } from './feature/artist/artist.component';
+import { CreatePlaylistComponent } from './feature/create-playlist/create-playlist.component';
 import { HomeComponent } from './feature/home/home.component';
-import { BannerComponent } from './shared/banner/banner.component';
-import { PlayerComponent } from './shared/player/player.component';
-
+import { LikeComponent } from './feature/like/like.component';
+import { SearchComponent } from './feature/search/search.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: '', component: PlayerComponent},
-  {path: '', component: BannerComponent},
-  {path: 'biblio', loadChildren: () => import('./feature/biblio/biblio.module').then(m => m.BiblioModule)},
-  {path: 'playlist', loadChildren: () => import('./feature/playlist/playlist.module').then(m => m.PlaylistModule)},
-  {path: 'register', loadChildren: () => import('./feature/register/register.module').then(m => m.RegisterModule)},
-  {path: 'search', loadChildren: () => import('./feature/search/search.module').then(m => m.SearchModule)}
+  {path: 'artist', component: ArtistComponent},
+  {path: 'create-playlist', component: CreatePlaylistComponent},
+  {path: 'album', component: AlbumComponent},
+  {path: 'like', component: LikeComponent},
+  {path: 'search', component: SearchComponent}
 ];
 
 @NgModule({

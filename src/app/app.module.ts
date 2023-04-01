@@ -1,15 +1,18 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './feature/home/home.component';
 import { PlayerComponent } from './shared/player/player.component';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { OAuthModule } from 'angular-oauth2-oidc';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BannerComponent } from './shared/banner/banner.component';
-import { ArtistListComponent } from './feature/artist-list/artist-list.component';
+import { AlbumComponent } from './feature/album/album.component';
+import { ArtistComponent } from './feature/artist/artist.component';
+import { CreatePlaylistComponent } from './feature/create-playlist/create-playlist.component';
+import { LikeComponent } from './feature/like/like.component';
+import { SearchComponent } from './feature/search/search.component';
 
 
 @NgModule({
@@ -18,15 +21,20 @@ import { ArtistListComponent } from './feature/artist-list/artist-list.component
     HomeComponent,
     PlayerComponent,
     BannerComponent,
-    ArtistListComponent
+    AlbumComponent,
+    ArtistComponent,
+    CreatePlaylistComponent,
+    LikeComponent,
+    SearchComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    OAuthModule
+    HttpClientModule
+
 
   ],
   providers: [],
