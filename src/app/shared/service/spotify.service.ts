@@ -14,7 +14,13 @@ export class SpotifyService {
 
   constructor(private _http: HttpClient) { }
 
+  buildHeaders(){
+    this.headers = new HttpHeaders({
+      Authorization: `Bearer ${localStorage.getItem("token")}`
+    })
+  }
 
+  //récupérer un artist via son id:
   getArtist(id: string) : Observable<Artist> {
     this.buildHeaders();
     console.log(this.headers);
@@ -26,41 +32,37 @@ export class SpotifyService {
     this.buildHeaders();
     console.log(this.headers);
     const url = 'https://api.spotify.com/v1/albums/' + id
-    return this._http.get<Album>(url,  { headers: this.headers })
+    return this._http.get<Album>(url, { headers: this.headers })
   }
 
   getPlaylist(id: string) : Observable <Playlist> {
     this.buildHeaders();
     console.log(this.headers);
     const url = 'https://api.spotify.com/v1/playlists/' + id
-    return this._http.get<Playlist>(url,  { headers: this.headers })
+    return this._http.get<Playlist>(url, { headers: this.headers })
   }
 
   getPlayer(id: string) : Observable <Player> {
     this.buildHeaders();
     console.log(this.headers);
     const url = 'https://api.spotify.com/v1/me/player/currently-playing/' + id
-    return this._http.get<Player>(url,  { headers: this.headers })
+    return this._http.get<Player>(url, { headers: this.headers })
   }
 
-  searchArtist(nom: string) : Observable <any>{
+  //recherche artist via le champ de recherche avec un nom:
+  searchArtist(nom: string) : Observable <any> {
     this.buildHeaders();
     console.log(this.headers);
     const url = `https://api.spotify.com/v1/search?q=${nom}&type=artist`;
     return this._http.get(url, { headers : this.headers });
   }
 
-
-
-
-  buildHeaders(){
-    this.headers = new HttpHeaders({
-      Authorization: `Bearer ${localStorage.getItem("token")}`
-    })
+  getArtistAlbums(id: string): Observable <any>{
+    this.buildHeaders();
+    console.log(this.headers);
+    const url = `https://api.spotify.com/v1/artists/${id}/albums`;
+    return this._http.get<Album>(url, { headers: this.headers })
   }
-
-
-
 
 }
 

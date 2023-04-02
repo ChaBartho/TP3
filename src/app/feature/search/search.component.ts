@@ -1,8 +1,5 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { map, Observable } from 'rxjs';
-import { AuthService } from 'src/app/shared/service/auth.service';
 import { SpotifyService } from 'src/app/shared/service/spotify.service';
 
 @Component({
@@ -12,10 +9,12 @@ import { SpotifyService } from 'src/app/shared/service/spotify.service';
 })
 export class SearchComponent implements OnInit {
 
-  term! : string;
+  name! : string;
+  id! : string;
   results! : any[];
-
-  selectedArtist! : string;
+  resultsAlbum! : any[];
+  artist! : any;
+  albums! : any;
 
 
   constructor(private _spotify : SpotifyService, private _activatedRoute: ActivatedRoute) { }
@@ -30,12 +29,21 @@ export class SearchComponent implements OnInit {
 
 
   ngOnInit() {
-    this.term = this._activatedRoute.snapshot.params['term'];
-    this.search();
+    this.name = this._activatedRoute.snapshot.params['name'];
+
+    this.id = this._activatedRoute.snapshot.params['id'];
+    this._spotify.getArtist(this.id).subscribe(
+      data => {
+        this.artist = data;
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
-  search() {
-    this._spotify.searchArtist(this.term).subscribe(
+  searchArtists() {
+    this._spotify.searchArtist(this.name).subscribe(
       data => {
         this.results = data['artists']['items'];
       },
@@ -45,6 +53,22 @@ export class SearchComponent implements OnInit {
     );
   }
 
+
+  clickArtist(artistId: string){
+    this._spotify.getArtistAlbums(artistId).subscribe((response: any) => {
+      const accessToken = response;
+      console.log(response);
+    });
+
+    this._spotify.getArtistAlbums(artistId).subscribe(
+      data => {
+        this.resultsAlbum = data['artists'];
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
 
 
 

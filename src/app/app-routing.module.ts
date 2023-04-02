@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AlbumDetailComponent } from './feature/album-detail/album-detail.component';
 import { AlbumComponent } from './feature/album/album.component';
 
 import { ArtistComponent } from './feature/artist/artist.component';
@@ -14,7 +15,9 @@ const routes: Routes = [
   {path: 'create-playlist', component: CreatePlaylistComponent},
   {path: 'album', component: AlbumComponent},
   {path: 'like', component: LikeComponent},
-  {path: 'search', component: SearchComponent}
+  {path: 'search', component: SearchComponent, children : [
+    {path: 'album-detail', component: AlbumDetailComponent}
+  ]}
 ];
 
 @NgModule({

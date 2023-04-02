@@ -1,24 +1,37 @@
-<p>search works!</p>
-
 <div class="center">
   <button (click)="testWonder()">test 'wonder'</button>
 
-  <br><br><br>
+  <br><br>
 
-  <input type="text" [(ngModel)]="term">
-  <button (click)="search()">go</button>
+  <input type="text" [(ngModel)]="name">
+  <button (click)="searchArtists()">go</button>
 
+  <!-- Potentiellement mettre dans un sous-component -->
 
-<!-- Potentiellement faire un sous-component ListComponent genre -->
-
-
-  <h1>Résultats de la recherche pour "{{ term }}"</h1>
+  <h1>Résultats de la recherche pour "{{ name }}"</h1>
     <div *ngIf="results">
       <div *ngFor="let artist of results">
         <h2>{{ artist.name }}</h2>
-        <img [src]="artist.images[0].url" alt="{{ artist.name }}">
-     </div>
+        <img [src]="artist.images[0].url" alt="{{ artist.name }}" style="width: 200px; height: 200px;">
+        <br>
+        <button (click)="clickArtist(artist.id)" routerLink="./album-detail">Voir les albums</button>
+      </div>
     </div>
+<br><br>
 
+
+<!-- album-detail
+    <div *ngIf="resultsAlbum">
+      <div *ngFor="let albums of resultsAlbum">
+        <h2>{{ album.name }}</h2>
+        <img [src]="album.images[0].url" alt="{{ album.name }}" style="width: 200px; height: 200px;">
+      </div>
+    </div>
+-->
 
 </div>
+
+
+
+
+<router-outlet></router-outlet>

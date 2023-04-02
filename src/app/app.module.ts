@@ -13,6 +13,8 @@ import { ArtistComponent } from './feature/artist/artist.component';
 import { CreatePlaylistComponent } from './feature/create-playlist/create-playlist.component';
 import { LikeComponent } from './feature/like/like.component';
 import { SearchComponent } from './feature/search/search.component';
+import { AlbumDetailComponent } from './feature/album-detail/album-detail.component';
+import { ReadArtistComponent } from './feature/read-artist/read-artist.component';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { SearchComponent } from './feature/search/search.component';
     ArtistComponent,
     CreatePlaylistComponent,
     LikeComponent,
-    SearchComponent
+    SearchComponent,
+    AlbumDetailComponent,
+    ReadArtistComponent
 
   ],
   imports: [
