@@ -9,10 +9,7 @@ export class AuthService {
   private clientId = environment.spotify.clientId
   private redirect_uri = environment.spotify.redirect_uri;
   state : string =  generateRandomString(16);
-
   scope: string = environment.spotify.scope
-
-
   url : string = environment.spotify.url
                   + '?response_type=token'
                   +'&client_id=' + encodeURIComponent(this.clientId)
