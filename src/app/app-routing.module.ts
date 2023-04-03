@@ -4,6 +4,7 @@ import { AlbumDetailComponent } from './feature/album-detail/album-detail.compon
 import { AlbumComponent } from './feature/album/album.component';
 
 import { ArtistComponent } from './feature/artist/artist.component';
+import { AuthorizeComponent } from './feature/authentication/authorize/authorize.component';
 import { CreatePlaylistComponent } from './feature/create-playlist/create-playlist.component';
 import { HomeComponent } from './feature/home/home.component';
 import { LikeComponent } from './feature/like/like.component';
@@ -11,6 +12,7 @@ import { SearchComponent } from './feature/search/search.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
+  {path: 'authorization', component: AuthorizeComponent},
   {path: 'artist', component: ArtistComponent},
   {path: 'create-playlist', component: CreatePlaylistComponent},
   {path: 'album', component: AlbumComponent},

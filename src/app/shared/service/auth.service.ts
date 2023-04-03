@@ -1,30 +1,58 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
+  private clientId = environment.spotify.clientId
+  private redirect_uri = environment.spotify.redirect_uri;
+  state : string =  generateRandomString(16);
 
-  private clientId = '7b02f1ea516d41b3a091cb529d5a142d';
-  private clientSecret = '3c2dadbb55b64698a5b548c262c169b4';
-  private accessToken!: string;
-
-
-  constructor(private _http: HttpClient) {}
+  scope: string = environment.spotify.scope
 
 
+  url : string = environment.spotify.url
+                  + '?response_type=token'
+                  +'&client_id=' + encodeURIComponent(this.clientId)
+                  +'&scope=' + encodeURIComponent(this.scope)
+                  + '&redirect_uri=' + encodeURIComponent(this.redirect_uri)
+                  + '&state=' + encodeURIComponent(this.state)
+                  + 'show_dialog';
+
+  login():void{
+    this.url += '?response_type=token';
+    this.url += '&client_id=' + encodeURIComponent(this.clientId);
+    this.url += '&scope=' + encodeURIComponent(this.scope);
+    this.url += '&redirect_uri=' + encodeURIComponent(this.redirect_uri);
+    this.url += '&state=' + encodeURIComponent(this.state)
+    this.url += 'show_dialog'
+  }
+}
+
+
+function generateRandomString(length: number): string {
+  let result = '';
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  const charactersLength = characters.length;
+  let counter = 0;
+  while (counter < length) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    counter += 1;
+  }
+
+  return result;
+}
+
+
+/*
   login(): void {
     const scopes = 'user-read-private user-read-email';
     const redirectUri = { uri:'https://localhost:4200' };
     const authorizeUrl = 'https://accounts.spotify.com/authorize?client_id=\${this.clientId}&response_type=code&redirect_uri=\${encodeURIComponent(redirectUri.uri)}&scope=\${encodeURIComponent(scopes)}';
     window.location.href = authorizeUrl;
   }
-
 
   getAccessToken(): Observable<string> {
     const tokenUrl = 'https://accounts.spotify.com/api/token';
@@ -39,7 +67,6 @@ export class AuthService {
       }));
   }
 
-
   getToken(code: string): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded',
@@ -51,7 +78,4 @@ export class AuthService {
     body.set('grant_type', 'client_credentials');
     return this._http.post('https://accounts.spotify.com/api/token', body.toString(), { headers });
   }
-
-
-
-}
+*/

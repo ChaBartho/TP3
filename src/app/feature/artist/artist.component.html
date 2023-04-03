@@ -1,1 +1,15 @@
-<p>artist works!</p>
+
+<div class="center">
+  <h1>Mes artistes les plus écoutés</h1>
+  <ul>
+    <li *ngFor="let artist of topArtists">
+      {{ artist.name }}
+      <div>
+          <img src="{{artist.images[1].url}}" alt="image" style="width: 200px; height: 200px;">
+      </div>
+    </li>
+  </ul>
+</div>
+
+
+

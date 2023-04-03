@@ -15,6 +15,7 @@ import { LikeComponent } from './feature/like/like.component';
 import { SearchComponent } from './feature/search/search.component';
 import { AlbumDetailComponent } from './feature/album-detail/album-detail.component';
 import { ReadArtistComponent } from './feature/read-artist/read-artist.component';
+import { AuthorizeComponent } from './feature/authentication/authorize/authorize.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { ReadArtistComponent } from './feature/read-artist/read-artist.component
     LikeComponent,
     SearchComponent,
     AlbumDetailComponent,
-    ReadArtistComponent
+    ReadArtistComponent,
+    AuthorizeComponent
 
   ],
   imports: [

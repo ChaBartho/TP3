@@ -16,9 +16,7 @@ export class SearchComponent implements OnInit {
   artist! : any;
   albums! : any;
 
-
   constructor(private _spotify : SpotifyService, private _activatedRoute: ActivatedRoute) { }
-
 
   testWonder(){
     this._spotify.searchArtist("wonder").subscribe((response: any) => {
@@ -27,11 +25,10 @@ export class SearchComponent implements OnInit {
     });
   }
 
-
   ngOnInit() {
     this.name = this._activatedRoute.snapshot.params['name'];
-
     this.id = this._activatedRoute.snapshot.params['id'];
+
     this._spotify.getArtist(this.id).subscribe(
       data => {
         this.artist = data;
@@ -53,7 +50,6 @@ export class SearchComponent implements OnInit {
     );
   }
 
-
   clickArtist(artistId: string){
     this._spotify.getArtistAlbums(artistId).subscribe((response: any) => {
       const accessToken = response;
@@ -69,9 +65,6 @@ export class SearchComponent implements OnInit {
       }
     );
   }
-
-
-
 
 
 
